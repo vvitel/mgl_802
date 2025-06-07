@@ -1,0 +1,4 @@
+org\example\App.class
+org\example\StandaloneApp.class
+org\example\AppCollection.class
+org\example\IApplication.class
