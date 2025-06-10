@@ -15,7 +15,7 @@ public class StandaloneApp implements IApplication {
         return name;
     }
 
-    public boolean getInstalled() {
+    public boolean isInstalled() {
         return installed;
     }
 
@@ -38,4 +38,8 @@ public class StandaloneApp implements IApplication {
     public String toString(){
         return name+" "+size+"bytes installed:"+installed;
     }
+    
+    public void accept(Visitor v){
+        v.visit(this);
+    }    
 }

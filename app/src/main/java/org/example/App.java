@@ -21,6 +21,9 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         ArrayList<IApplication> applications = new ArrayList<IApplication>();
+        InstallerFactory installerFactory;
+        if( System.getProperty("os.name").startsWith("Windows")) installerFactory = new WindowsInstallerFactory();
+        else installerFactory = new LinuxInstallerFactory();
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -54,6 +57,10 @@ public class App extends Application {
                         applications.add(collection);
                     }
                     System.out.println(applications);
+                    for (IApplication a : applications){
+                        a.accept(new InstallVisitor(installerFactory));
+                    }
+                    System.out.println(applications);                    
                 })
                 .join();
 
