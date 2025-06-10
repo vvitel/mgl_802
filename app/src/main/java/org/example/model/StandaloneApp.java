@@ -16,4 +16,12 @@ public class StandaloneApp implements IApplication {
     public boolean getInstalled() {
         return installed;
     }
+
+    public void setName(String name) {
+         this.name=name;
+    }
+
+    public void setInstalled(boolean installed) {
+         this.installed= installed;
+    }
 }

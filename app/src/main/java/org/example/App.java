@@ -6,27 +6,31 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class App extends Application
-{
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.List;
+
+public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
-        IApplication chrome = new StandaloneApp("Google Chrome",true);
-        IApplication vscode = new StandaloneApp("VS Code",false);
-        AppCollection devTools = new AppCollection();
-        devTools.addApp(vscode);
+        AppCollection appCollection = new AppCollection();
 
-        AppCollection allApps = new AppCollection();
-        allApps.addApp(chrome);
-        allApps.addApp(devTools);
+        AppView view = new AppView();
 
-
-        Button btnInstall = new Button("Install");
-
-        VBox root = new VBox(10, btnInstall);
-        Scene scene = new Scene(root, 300, 200);
+        view.getBtnInstall().setOnAction(e -> {
+            StandaloneApp app = new StandaloneApp("VS Code", false);
+            InstallerFactory factory = new WindowsInstallerFactory();
+            Installer installer = factory.createInstaller();
+            installer.install(app);
+            app.setInstalled(true);
+            appCollection.addApp(app);
+            System.out.println("App installed");
+        });
 
         primaryStage.setTitle("App Manager");
-        primaryStage.setScene(scene);
+        primaryStage.setScene(view.getScene());
         primaryStage.show();
     }
 

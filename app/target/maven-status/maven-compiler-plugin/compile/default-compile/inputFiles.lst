@@ -1,4 +1,11 @@
-C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\src\main\java\org\example\App.java
-C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\src\main\java\org\example\AppCollection.java
-C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\src\main\java\org\example\IApplication.java
-C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\src\main\java\org\example\StandaloneApp.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\App.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\model\AppCollection.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\model\IApplication.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\model\Installer.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\model\InstallerFactory.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\model\LinuxInstaller.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\model\LinuxInstallerFactory.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\model\StandaloneApp.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\model\WindowsInstaller.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\model\WindowsInstallerFactory.java
+C:\Users\fareh\OneDrive\Documents\appManager\mgl_802\app\src\main\java\org\example\view\AppView.java
