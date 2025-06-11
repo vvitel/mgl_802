@@ -30,6 +30,17 @@ public class AppCollection implements IApplication, Iterable<IApplication> {
         return sb.toString();
     }
 
+    public String getSize(){
+        StringBuilder sb = new StringBuilder("content: ");
+        boolean first = true;
+        for (IApplication app : apps) {
+            sb.append((first ? "" : ",") + app.getName()+" ");
+            first = false;
+        };
+        sb.append("");
+        return sb.toString();
+        }
+
     public String getName(){
         return name;
     }

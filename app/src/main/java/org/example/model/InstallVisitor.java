@@ -2,20 +2,20 @@ package org.example;
 
 public class InstallVisitor implements Visitor{
 
-    InstallerFactory installerFactory;
+    Installer installer;
 
-    public InstallVisitor(InstallerFactory installerFactory){
-        this.installerFactory = installerFactory;
+    public InstallVisitor(Installer installer){
+        this.installer = installer;
     }
 
     public void visit(AppCollection app){
         for (IApplication application : app){
-            application.accept(new InstallVisitor(installerFactory));
+            application.accept(this);
         }
     }
 
     public void visit(StandaloneApp app){
-        installerFactory.createInstaller().install(app);
+        installer.install(app);
     }
 
 }

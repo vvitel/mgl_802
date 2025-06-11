@@ -26,17 +26,16 @@ public class AppView {
         root.setAlignment(Pos.TOP_CENTER);
 
         for (IApplication app : apps) {
-            if (app instanceof StandaloneApp sa) {
                 VBox card = new VBox(10);
                 card.setPadding(new Insets(10));
                 card.setStyle("-fx-background-color: #f0f0f0; -fx-border-color: #ccc; -fx-border-radius: 5; -fx-background-radius: 5;");
                 card.setAlignment(Pos.CENTER_LEFT);
 
-                Label nameLabel = new Label("📦 " + sa.getName());
+                Label nameLabel = new Label("📦 " + app.getName());
                 nameLabel.setStyle("-fx-font-size: 16px; -fx-font-weight: bold;");
-                Label sizeLabel = new Label("Size: " + sa.getSize() + " bytes");
+                Label sizeLabel = new Label(app.getSize());
 
-                if (sa.isInstalled()) {
+                if (app.isInstalled()) {
                     Label installedLabel = new Label("✅ Installed");
                     installedLabel.setStyle("-fx-text-fill: green;");
                     card.getChildren().addAll(nameLabel, sizeLabel, installedLabel);
@@ -60,7 +59,7 @@ public class AppView {
                                 }
 
                                 Platform.runLater(() -> {
-                                    installer.install(sa); // install the app
+                                    app.accept(new InstallVisitor(installer)); // install the app
                                     displayApplications(apps, installer); // refresh the view
                                 });
                             } catch (InterruptedException ex) {
@@ -73,7 +72,6 @@ public class AppView {
                 }
 
                 root.getChildren().add(card);
-            }
         }
     }
 }

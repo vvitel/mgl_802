@@ -19,8 +19,8 @@ public class StandaloneApp implements IApplication {
         return installed;
     }
 
-    public int getSize(){
-        return size;
+    public String getSize(){
+        return "Size: " + size + " bytes";
     }
 
     public void setName(String name) {

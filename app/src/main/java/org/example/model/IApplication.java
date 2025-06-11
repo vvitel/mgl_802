@@ -5,5 +5,7 @@ public interface IApplication {
 
     public String getName();
 
+    public String getSize();
+
     public void accept(Visitor v);
 }
