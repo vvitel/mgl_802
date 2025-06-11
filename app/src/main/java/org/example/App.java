@@ -57,30 +57,23 @@ public class App extends Application {
                         applications.add(collection);
                     }
                     System.out.println(applications);
-                    for (IApplication a : applications){
+                    /*for (IApplication a : applications){
                         a.accept(new InstallVisitor(installerFactory));
                     }
-                    System.out.println(applications);                    
+                    System.out.println(applications);   */
                 })
                 .join();
 
-        // AppCollection appCollection = new AppCollection();
-
         AppView view = new AppView();
+        Installer installer = installerFactory.createInstaller();
+        installer.addObserver(new InstallLogger());
 
-        view.getBtnInstall().setOnAction(e -> {
-            // StandaloneApp app = new StandaloneApp("VS Code", false);
-            InstallerFactory factory = new WindowsInstallerFactory();
-            Installer installer = factory.createInstaller();
-            // installer.install(app);
-            //// app.setInstalled(true);
-            // appCollection.addApp(app);
-            System.out.println("App installed");
-        });
+        view.displayApplications(applications, installer);
 
         primaryStage.setTitle("App Manager");
         primaryStage.setScene(view.getScene());
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {
