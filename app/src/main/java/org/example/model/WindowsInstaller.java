@@ -5,6 +5,7 @@ public class WindowsInstaller implements Installer {
     private List<AppInstallObserver> observers = new ArrayList<>();
     @Override
     public void install(StandaloneApp app) {
+        System.out.println("Installing on windows...");
         app.setInstalled(true);
         notifyObservers(app);
     }
