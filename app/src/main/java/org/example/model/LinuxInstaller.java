@@ -5,6 +5,7 @@ public class LinuxInstaller implements Installer {
     private List<AppInstallObserver> observers = new ArrayList<>();
     @Override
     public void install(StandaloneApp app) {
+        if(app.isInstalled()) return;
         System.out.println("Installing on linux...");
         app.setInstalled(true);
         notifyObservers(app);
